@@ -17,3 +17,8 @@ You can configure the speedtest interval by specifying the following parameter:
 https://github.com/SebaViana/git_repo_exporter/blob/4e452a257e37f55ae2f5a0da47a3aba5cf16a0b8/default.yml#L1
 
 This parameter should be added to a mounted volume in the location /app/custom.yml.
+
+## Build & running container
+docker build -t git_repo_exporter .
+
+docker run -p 9009:8085 -v /home/seba/Documents/repos/:/repos/ git_repo_exporter
