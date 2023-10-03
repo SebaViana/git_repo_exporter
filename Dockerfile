@@ -11,10 +11,8 @@ RUN apt-get update && apt-get install -y iputils-ping git
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Add logic to configure "safe.directory" exceptions for Git repositories
-RUN find /repos/ -type d -name .git | while read repo; do \
-  dir=$(dirname "$repo"); \
-  git config --global --add safe.directory "$dir"; \
-done
+RUN mkdir /repos/
+RUN git config --global --add safe.directory '*'
 
 EXPOSE 8085
 
